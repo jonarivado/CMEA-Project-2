@@ -1,0 +1,13 @@
+# Target labels
+ IGL
+# Source files and their labels
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/IGL
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/IGL.rule
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/IGL-complete.rule
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-build.rule
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-configure.rule
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-download.rule
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-install.rule
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-mkdir.rule
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-patch.rule
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-update.rule

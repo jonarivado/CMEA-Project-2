@@ -1,0 +1,9 @@
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/fem2d.dir
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/IGL.dir
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/Eigen.dir
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/unittest/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/unittest/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/unittest/CMakeFiles/unittest.dir
+/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/unittest/CMakeFiles/GTestDownload.dir

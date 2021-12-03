@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/IGL"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/IGL.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/CMakeFiles/IGL-complete.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-build.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-configure.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-download.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-install.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-mkdir.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-patch.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/jonat/OneDrive/Documents/CMEA/project2_handout/2d-linFEM/build/IGL-prefix/src/IGL-stamp/IGL-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"IGL"
+		],
+		"name" : "IGL"
+	}
+}

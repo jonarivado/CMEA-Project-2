@@ -42,6 +42,12 @@ void computeStiffnessMatrix(MatrixType &stiffnessMatrix,
     {
         for (int i = 0; i <= 2; i++)
         {
+            stiffnessMatrix(i, j) = integrate(
+                [&](double x, double y)
+                {
+                    Eigen::Vector2d coordInOrig = coordinateTransform * Eigen::Vector2d(x, y) + Eigen::Vector2d(a(0), a(1));
+                    return volumeFactor * (sigma(coordInOrig(0), coordInOrig(1)) * (elementMap * gradientLambda(i, x, y)).dot(elementMap * gradientLambda(j, x, y)) + r * lambda(i, x, y) * lambda(j, x, y));
+                });
         }
     }
 }

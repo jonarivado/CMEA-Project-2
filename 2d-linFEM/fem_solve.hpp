@@ -22,30 +22,35 @@ typedef Eigen::VectorXd Vector;
 //! @param[in] sigma the function sigma as in the exercise
 //! @param[in] r the parameter r from the lecture notes
 //! return number of degrees of freedom (without the boundary dofs)
-int solveFiniteElement(Vector& u,
-		       const Eigen::MatrixXd& vertices,
-		       const Eigen::MatrixXi& triangles,
-		       const std::function<double(double, double)>& f,
-		       const std::function<double(double, double)>& sigma,		       
-		       const std::function<double(double, double)>& g,
-		       double r)
+int solveFiniteElement(Vector &u,
+                       const Eigen::MatrixXd &vertices,
+                       const Eigen::MatrixXi &triangles,
+                       const std::function<double(double, double)> &f,
+                       const std::function<double(double, double)> &sigma,
+                       const std::function<double(double, double)> &g,
+                       double r)
 {
-  SparseMatrix A(vertices.rows(), vertices.rows());
-  auto startAssembly = std::chrono::high_resolution_clock::now();
-// (write your solution here)
+    SparseMatrix A(vertices.rows(), vertices.rows());
+    auto startAssembly = std::chrono::high_resolution_clock::now();
+    // (write your solution here)
+    std::cout << "Assembling stiffness matrix..." << std::endl;
+    assembleStiffnessMatrix(A, vertices, triangles, sigma, r);
     auto endAssembly = std::chrono::high_resolution_clock::now();
     Vector F;
-// (write your solution here)
-    
+    // (write your solution here)
+    std::cout << "Assembling load vector..." << std::endl;
+    assembleLoadVector(F, vertices, triangles, f);
     u.resize(vertices.rows());
     u.setZero();
     Eigen::VectorXi interiorVertexIndices;
 
     // set Dirichlet Boundary conditions
-// (write your solution here)
-    
-
-    std::cout << "Assembly used " << (std::chrono::duration_cast<std::chrono::microseconds>(endAssembly-startAssembly).count() / (1000*1000.)) << " seconds\n";
+    // (write your solution here)
+    std::cout << "Setting Dirichlet boundary conditions..." << std::endl;
+    setDirichletBoundary(u, interiorVertexIndices, vertices, triangles, g);
+    std::cout << "Solving linear system..." << std::endl;
+    F -= A * u;
+    std::cout << "Assembly used " << (std::chrono::duration_cast<std::chrono::microseconds>(endAssembly - startAssembly).count() / (1000 * 1000.)) << " seconds\n";
     SparseMatrix AInterior;
 
     igl::slice(A, interiorVertexIndices, interiorVertexIndices, AInterior);
@@ -56,13 +61,16 @@ int solveFiniteElement(Vector& u,
     igl::slice(F, interiorVertexIndices, FInterior);
     auto startSolve = std::chrono::high_resolution_clock::now();
     //initialize solver for AInterior
-// (write your solution here)
-
+    // (write your solution here)
+    std::cout << "solving..." << std::endl;
+    solver.compute(AInterior);
     //solve interior system
-// (write your solution here)
-    auto endSolve = std::chrono::high_resolution_clock::now();
-    std::cout << "Solving used " << (std::chrono::duration_cast<std::chrono::microseconds>(endSolve-startSolve).count() / (1000*1000.0)) << " seconds\n";
-    return interiorVertexIndices.size();
+    // (write your solution here)
+    Vector solutionInt = solver.solve(FInterior);
+    igl::slice_into(solutionInt, interiorVertexIndices, u);
 
+    auto endSolve = std::chrono::high_resolution_clock::now();
+    std::cout << "Solving used " << (std::chrono::duration_cast<std::chrono::microseconds>(endSolve - startSolve).count() / (1000 * 1000.0)) << " seconds\n";
+    return interiorVertexIndices.size();
 }
 //----------------solveEnd----------------

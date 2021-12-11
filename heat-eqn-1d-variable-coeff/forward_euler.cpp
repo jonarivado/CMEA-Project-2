@@ -36,26 +36,20 @@ std::pair<Eigen::MatrixXd, Eigen::VectorXd> forwardEuler(
 
     // (write your solution here)
 
-    u.col(0) = u0;
+    u.col(0) << u0;
     time(0) = 0;
     time(nsteps) = T;
     Eigen::SparseMatrix<double> A = createPoissonMatrix(N, a);
-    Eigen::VectorXd G = Eigen::VectorXd::Zero(N);
-    /*G(0) = a(h) * dt * gL(0) / (h * h);
-    G(N - 1) = a(1 - h) * dt * gR(T) / (h * h);
-    for (int i = 1; i < nsteps; i++)
+
+    for (int t = 1; t <= nsteps; t++)
     {
-        time(i) = time(i - 1) + dt;
-        u.col(i).segment(1, N) = u.col(i - 1).segment(1, N) - dt * A * u.col(i - 1).segment(1, N);
-    }*/
-    G(0) = a(h) * dt * gL(0) / (h * h);
-    G(N - 1) = a(1 - h) * dt * gR(T) / (h * h);
+        u(0, t) = dt * gL(t * dt) + u.col(t - 1)(0) - dt * a(h) * u.col(t - 1)(0) / (h * h);
+        u(N + 1, t) = dt * gR(t * dt) + u.col(t - 1)(N) - dt * a(1 - h) * u.col(t - 1)(N) / (h * h);
+    }
     for (int k = 0; k < nsteps; k++)
     {
         u.col(k + 1).segment(1, N) = u.col(k).segment(1, N) - dt * A * u.col(k).segment(1, N);
         time(k + 1) = (k + 1) * dt;
-        u.col(k + 1)[0] = gL(time(k + 1));
-        u.col(k + 1)[N + 1] = gR(time(k + 1));
     }
 
     return std::make_pair(u, time);

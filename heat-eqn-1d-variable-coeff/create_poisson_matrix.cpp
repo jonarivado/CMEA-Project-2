@@ -20,17 +20,19 @@ SparseMatrix createPoissonMatrix(int N,
     double dx = 1.0 / (N + 1);
     for (int i = 0; i < N; i++)
     {
-        double x = i * dx;
+        double x = (i + 1) * dx;
         double a_x = a(x);
         triplets.push_back(Triplet(i, i, 2 * a_x / (dx * dx)));
         if (i > 0)
         {
-            triplets.push_back(Triplet(i, i - 1, -a_x / (dx * dx)));
+            triplets.push_back(Triplet(i, i - 1, -1 * (a_x) / (dx * dx)));
         }
         if (i < N - 1)
         {
-            triplets.push_back(Triplet(i, i + 1, -a_x / (dx * dx)));
+            triplets.push_back(Triplet(i, i + 1, -1 * (a_x) / (dx * dx)));
         }
     }
+
+    A.setFromTriplets(triplets.begin(), triplets.end());
     return A;
 }
